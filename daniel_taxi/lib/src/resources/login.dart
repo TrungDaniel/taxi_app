@@ -1,5 +1,7 @@
+import 'package:daniel_taxi/src/resources/RegisterPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/gestures.dart';
 
 class LoginPage extends StatelessWidget {
   @override
@@ -32,7 +34,6 @@ class LoginPage extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(0, 120, 0, 0),
                   child: TextField(
-                    obscureText: true,
                     decoration: InputDecoration(
                       prefixIcon: Container(
                         width: 50,
@@ -67,8 +68,52 @@ class LoginPage extends StatelessWidget {
                     alignment: AlignmentDirectional.centerEnd,
                     child: Padding(
                       padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
-                      child: Text('Forgot password?'),
+                      child: Text(
+                        'Forgot password?',
+                        style: TextStyle(color: Colors.black54, fontSize: 14),
+                      ),
                     )),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(30, 20, 30, 0),
+                  child: Container(
+                    height: 45,
+                    width: double.infinity,
+                    child: SizedBox(
+                      child: RaisedButton(
+                        onPressed: () {},
+                        child: Text(
+                          'Login',
+                          style: TextStyle(
+                              fontSize: 17, fontWeight: FontWeight.bold),
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                        ),
+                        textColor: Colors.white,
+                        color: Colors.lightBlue,
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+                  child: RichText(
+                      text: TextSpan(
+                          text: 'New user? ',
+                          style: TextStyle(color: Colors.black54, fontSize: 16),
+                          children: <TextSpan>[
+                        TextSpan(
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => RegisterPage()));
+                              },
+                            text: 'Sign up for a new account',
+                            style: TextStyle(color: Colors.blue))
+                      ])),
+                ),
               ],
             ),
           ),
