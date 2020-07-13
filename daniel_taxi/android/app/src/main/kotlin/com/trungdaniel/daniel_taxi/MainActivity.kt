@@ -1,0 +1,6 @@
+package com.trungdaniel.daniel_taxi
+
+import io.flutter.embedding.android.FlutterActivity
+
+class MainActivity: FlutterActivity() {
+}
